@@ -1,4 +1,6 @@
-# onesie
+# Onesie
+
+[![ci](https://github.com/watermelonexpress/onesie/actions/workflows/ci.yml/badge.svg)](https://github.com/watermelonexpress/onesie/actions/workflows/ci.yml)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be
 able to package up your Ruby library into a gem. Put your Ruby code in the file
@@ -22,6 +24,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install onesie
+
+Generate and run the required migration file:
+
+    $ bin/rails generate onesie:install
 
 ## Usage
 

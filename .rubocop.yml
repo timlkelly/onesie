@@ -5,6 +5,8 @@ require:
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - lib/generators/onesie/templates/migration.rb
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
