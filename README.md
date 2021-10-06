@@ -28,10 +28,19 @@ Or install it yourself as:
 Generate and run the required migration file:
 
     $ bin/rails generate onesie:install
+    $ bundle exec rake db:migrate
 
 ## Usage
 
-TODO: Write usage instructions here
+Generate a new Onesie Task using either the Rails generator or the Rake task
+
+    $ bin/rails generate onesie:task MyFirstTask
+
+    $ bundle exec rake onesie:new['MyFirstTask']
+
+Run the Onesie tasks with the following Rake task
+
+    $ bundle exec rake onesie:run
 
 ## Development
 
