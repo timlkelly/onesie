@@ -38,4 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance', '~> 1.11'
   spec.add_development_dependency 'rubocop-rake',        '~> 0.5.1'
   spec.add_development_dependency 'rubocop-rspec',       '~> 2.5'
+
+  spec.add_runtime_dependency 'activerecord', '~> 6.1.4.1'
+  spec.add_runtime_dependency 'colorize',     '~> 0.8.1'
 end
