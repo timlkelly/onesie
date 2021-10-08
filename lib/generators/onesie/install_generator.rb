@@ -13,7 +13,7 @@ module Onesie
       def copy_migration
         migration_template(
           'migration.rb',
-          'db/migrate/create_onesie_table.rb',
+          'db/migrate/create_onesie_logs_table.rb',
           migration_version: migration_version
         )
       end
