@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'colorize'
+
 module Onesie
   # Wraps Onesie Task
   # Responsible for checking if the Task has been ran already
