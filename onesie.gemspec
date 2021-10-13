@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_development_dependency 'generator_spec',      '~> 0.9'
   spec.add_development_dependency 'guard',               '~> 2.17'
   spec.add_development_dependency 'guard-rspec',         '~> 4.7'
   spec.add_development_dependency 'guard-rubocop',       '~> 1.5'
