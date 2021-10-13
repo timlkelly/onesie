@@ -8,6 +8,7 @@ module Onesie
     class InstallGenerator < Rails::Generators::Base
       include ActiveRecord::Generators::Migration
 
+      desc 'Bootstrap the Onesie gem'
       source_root File.expand_path('./templates', __dir__)
 
       def copy_migration
