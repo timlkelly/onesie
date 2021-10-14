@@ -4,7 +4,7 @@ require 'generator_spec'
 require 'generators/onesie/install_generator'
 
 RSpec.describe Onesie::Generators::InstallGenerator, type: :generator do
-  destination File.expand_path('../../tmp', __dir__)
+  destination File.expand_path('../../../tmp', __dir__)
 
   before do
     prepare_destination

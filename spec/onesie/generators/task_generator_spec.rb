@@ -4,7 +4,7 @@ require 'generator_spec'
 require 'generators/onesie/task_generator'
 
 RSpec.describe Onesie::Generators::TaskGenerator, type: :generator do
-  destination File.expand_path('../../tmp', __dir__)
+  destination File.expand_path('../../../tmp', __dir__)
   arguments %w[TestTask]
 
   before do
