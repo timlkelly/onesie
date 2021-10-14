@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'colorize'
+
 require_relative 'onesie/overseer'
 require_relative 'onesie/railtie'
 require_relative 'onesie/task_record'

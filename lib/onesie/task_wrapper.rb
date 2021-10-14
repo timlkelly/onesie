@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-require 'colorize'
-
 module Onesie
   # Wraps Onesie Task
   # Responsible for checking if the Task has been ran already
   # and recording the Task
+  # Prepend to the Task class prior to running
   module TaskWrapper
     def run
       return if task_record_present?
 
-      puts "Running #{klass_name}...".magenta
+      puts "Running #{class_name}...".magenta
       super
       record_task
       puts 'Done!'.green
@@ -18,16 +17,16 @@ module Onesie
 
     private
 
-    def klass_name
+    def class_name
       self.class.name
     end
 
     def record_task
-      TaskRecord.create!(task_name: klass_name)
+      TaskRecord.create!(task_name: class_name)
     end
 
     def task_record_present?
-      TaskRecord.find_by(task_name: klass_name).present?
+      TaskRecord.find_by(task_name: class_name).present?
     end
   end
 end
