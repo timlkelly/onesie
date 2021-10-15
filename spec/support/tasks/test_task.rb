@@ -3,7 +3,7 @@
 module Onesie
   module Tasks
     class TestTask < Onesie::Task
-      manual_task false
+      manual_task enabled: false
 
       def run; end
     end

@@ -3,7 +3,7 @@
 module Onesie
   module Tasks
     class <%= class_name %> < Onesie::Task
-      manual_task false
+      manual_task enabled: false
 
       def run
         # Write your Onesie Task here
