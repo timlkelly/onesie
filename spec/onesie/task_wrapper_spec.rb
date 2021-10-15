@@ -2,7 +2,9 @@
 
 RSpec.describe Onesie::TaskWrapper do
   let(:task_class) do
-    Class.new do
+    Class.new(Onesie::Task) do
+      manual_task false
+
       def run; end
     end
   end
@@ -21,10 +23,34 @@ RSpec.describe Onesie::TaskWrapper do
         allow(Onesie::TaskRecord).to receive(:create!).and_return(true)
       end
 
-      it 'records the task' do
-        task.run
+      context 'with a non-manual task' do
+        it 'records the task' do
+          task.run
 
-        expect(Onesie::TaskRecord).to have_received(:create!)
+          expect(Onesie::TaskRecord).to have_received(:create!)
+        end
+      end
+
+      context 'with a manual task' do
+        before do
+          allow(task).to receive(:manual_task?).and_return(true)
+        end
+
+        context 'without the manual_override' do
+          it 'does not run the task' do
+            task.run
+
+            expect(Onesie::TaskRecord).not_to have_received(:create!)
+          end
+        end
+
+        context 'with the manual_override' do
+          it 'runs the task' do
+            task.run(manual_override: true)
+
+            expect(Onesie::TaskRecord).to have_received(:create!)
+          end
+        end
       end
     end
 
