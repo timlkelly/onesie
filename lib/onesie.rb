@@ -10,4 +10,8 @@ require_relative 'onesie/version'
 
 module Onesie
   TASKS_DIR = 'onesie/tasks'
+
+  # Initialize the Tasks namespace
+  module Tasks
+  end
 end

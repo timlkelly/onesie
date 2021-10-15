@@ -10,6 +10,12 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.register_ordering :custom do |list|
+    list.sort_by do |example_group|
+      example_group.metadata[:order_number] || 1024
+    end
+  end
+
   config.default_formatter = 'doc' if config.files_to_run.one?
   config.disable_monkey_patching!
   config.example_status_persistence_file_path = 'spec/examples.txt'
