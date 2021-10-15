@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
-puts 'LOADED'
+module Onesie
+  module Tasks
+    class TestTask < Onesie::Task
+      manual_task false
 
-Onesie::Tasks::TestTask = Class.new do
-  def run; end
+      def run; end
+    end
+  end
 end
