@@ -2,12 +2,7 @@
 
 [![ci](https://github.com/watermelonexpress/onesie/actions/workflows/ci.yml/badge.svg)](https://github.com/watermelonexpress/onesie/actions/workflows/ci.yml)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be
-able to package up your Ruby library into a gem. Put your Ruby code in the file
-`lib/onesie`. To experiment with that code, run `bin/console` for an
- interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Onesie is a Task runner for BenchPrep Rails applications.
 
 ## Installation
 
@@ -21,10 +16,6 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install onesie
-
 Generate and run the required migration file:
 
     $ bin/rails generate onesie:install
@@ -32,11 +23,14 @@ Generate and run the required migration file:
 
 ## Usage
 
-Generate a new Onesie Task using either the Rails generator or the Rake task
+Generate a new Onesie Task using either the Rails generator or the Rake task:
 
     $ bin/rails generate onesie:task MyFirstTask
 
     $ bundle exec rake onesie:new['MyFirstTask']
+
+Add your code in the new generated template file. Make sure to make use of the
+`#run` method. This is what will be executed when the Tasks are ran.
 
 Run the Onesie tasks with the following Rake task
 
@@ -53,3 +47,10 @@ release a new version, update the version number in `version.rb`, and then
 run `bundle exec rake release`, which will create a git tag for the version,
 push git commits and the created tag, and push the `.gem` file
 to [rubygems.org](https://rubygems.org).
+
+[Guard][1] is setup for local development and will automatically run RSpec and
+Rubocop upon file save. To make use of this, run `bundle exec guard`.
+
+Add any changes to CHANGELOG under "Unreleased".
+
+[1]: https://github.com/guard/guard
