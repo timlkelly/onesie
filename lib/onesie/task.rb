@@ -3,6 +3,15 @@
 module Onesie
   # Base Task class
   class Task
+    def self.allowed_environments(*envs)
+      instance_variable_set(:@envs, envs.map(&:to_s))
+
+      define_method(:allowed_environment?) do
+        envs = self.class.instance_variable_get(:@envs)
+        envs.include?(Rails.env) || envs.include?('all')
+      end
+    end
+
     # Class macro to define #manual_task? guard method
     #
     # @api public
