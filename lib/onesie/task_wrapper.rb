@@ -7,6 +7,7 @@ module Onesie
   # Prepend to the Task class prior to running
   module TaskWrapper
     def run(manual_override: false)
+      return unless allowed_environment?
       return if task_record_present?
       return if !manual_override && manual_task?
 
