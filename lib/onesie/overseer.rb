@@ -33,7 +33,7 @@ module Onesie
     end
 
     def load_tasks
-      $LOAD_PATH << Bundler.root
+      $LOAD_PATH << Bundler.root.to_s
 
       Pathname(Onesie::TASKS_DIR).children.each do |child|
         require child.to_s
