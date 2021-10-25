@@ -3,7 +3,7 @@
 module Onesie
   module Tasks
     class <%= class_name %> < Onesie::Task
-      allowed_enviornments :all
+      allowed_environments :all
       manual_task enabled: false
 
       def run
