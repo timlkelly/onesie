@@ -13,6 +13,15 @@ module Onesie
       end
     end
 
+    # Run a specific Onesie Task
+    #
+    # @api public
+    # @example Manually run a specific task
+    #  run_task(:MyTask, manual_override: true)
+    # @param class_name [String, Symbol] the name of the Task to run
+    # @param manual_override [Boolean] optional keyword argument to override
+    #  the manual task guard
+    # @return [String, nil]
     def run_task(class_name, manual_override: false)
       klass = Onesie::Tasks.const_get(class_name)
       klass.class_eval { prepend Onesie::TaskWrapper }
@@ -24,6 +33,10 @@ module Onesie
 
     private
 
+    # Error message for a failed Task
+    #
+    # @api private
+    # @return [String]
     def error_message(const)
       <<~MSG
         \n
@@ -32,6 +45,10 @@ module Onesie
       MSG
     end
 
+    # Load all of the Onesie Tasks
+    #
+    # @api private
+    # @return [Array<Pathname>]
     def load_tasks
       $LOAD_PATH << Bundler.root
 
