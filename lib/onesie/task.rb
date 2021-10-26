@@ -30,5 +30,31 @@ module Onesie
     def self.manual_task(enabled: false)
       define_method(:manual_task?) { enabled }
     end
+
+    private
+
+    # Returns the Task's class name
+    #
+    # @api private
+    # @return [String]
+    def class_name
+      self.class.name
+    end
+
+    # Creates a TaskRecord entry for the Task
+    #
+    # @api private
+    # @return [TaskRecord]
+    def record_task
+      TaskRecord.create!(task_name: class_name)
+    end
+
+    # Checks if this Task's TaskRecord is present in the database
+    #
+    # @api private
+    # @return [Boolean]
+    def task_record_present?
+      TaskRecord.find_by(task_name: class_name).present?
+    end
   end
 end
