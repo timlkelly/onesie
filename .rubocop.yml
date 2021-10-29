@@ -37,6 +37,9 @@ Metrics/BlockLength:
 RSpec/MultipleExpectations:
   Max: 2
 
+RSpec/NestedGroups:
+  Max: 4
+
 Style/BlockDelimiters:
   Exclude:
     - 'spec/**/*'

@@ -6,11 +6,12 @@ module Onesie
   # and recording the Task
   # Prepend to the Task class prior to running
   module TaskWrapper
-    def run
+    def run(manual_override: false)
       return if task_record_present?
+      return if !manual_override && manual_task?
 
       puts "Running #{class_name}...".magenta
-      super
+      super()
       record_task
       puts 'Done!'.green
     end
