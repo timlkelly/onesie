@@ -14,14 +14,12 @@ module Onesie
     end
 
     def run_task(class_name, manual_override: false)
-      ActiveRecord::Base.transaction do
-        klass = Onesie::Tasks.const_get(class_name)
-        klass.class_eval { prepend Onesie::TaskWrapper }
-        klass.new.run(manual_override: manual_override)
-      rescue StandardError => e
-        puts error_message(class_name).red
-        raise e
-      end
+      klass = Onesie::Tasks.const_get(class_name)
+      klass.class_eval { prepend Onesie::TaskWrapper }
+      klass.new.run(manual_override: manual_override)
+    rescue StandardError => e
+      puts error_message(class_name).red
+      raise e
     end
 
     private
