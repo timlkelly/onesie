@@ -7,16 +7,20 @@ module Onesie
       load_tasks
     end
 
-    def run
+    def run_all
       Onesie::Tasks.constants.each do |const|
-        ActiveRecord::Base.transaction do
-          klass = Onesie::Tasks.const_get(const)
-          klass.class_eval { prepend Onesie::TaskWrapper }
-          klass.new.run
-        rescue StandardError => e
-          puts error_message(const).red
-          raise e
-        end
+        run_task(const)
+      end
+    end
+
+    def run_task(class_name, manual_override: false)
+      ActiveRecord::Base.transaction do
+        klass = Onesie::Tasks.const_get(class_name)
+        klass.class_eval { prepend Onesie::TaskWrapper }
+        klass.new.run(manual_override: manual_override)
+      rescue StandardError => e
+        puts error_message(class_name).red
+        raise e
       end
     end
 
