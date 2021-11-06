@@ -13,6 +13,6 @@ RSpec.describe Onesie::Generators::TaskGenerator, type: :generator do
   end
 
   it 'creates a new task file' do
-    assert_file 'onesie/tasks/test_task.rb', /class TestTask < Onesie::Task/
+    assert_migration 'onesie/tasks/test_task.rb', /class TestTask < Onesie::Task/
   end
 end
