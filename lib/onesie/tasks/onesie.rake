@@ -2,17 +2,18 @@
 
 namespace :onesie do
   desc 'Generates a new Onesie Task'
-  task :new, [:name] => [:environment] do |_t, args|
+  task :new, [:name] do |_t, args|
     Rails::Generators.invoke('onesie:task', [args.fetch(:name)])
   end
 
   desc 'Manually run a specific Onesie Tasks'
-  task :run, [:task_name] => [:environment] do
-    Onesie::Manager.new.run_task(task_name, manual_override: true)
+  task :run, [:version] do |_t, args|
+    task_version = args[:version]
+    Onesie::Manager.new.run_task(task_version)
   end
 
   desc 'Run all unprocessed Onesie Tasks'
-  task run_all: [:environment] do
+  task :run_all do
     Onesie::Manager.new.run_all
   end
 end

@@ -9,14 +9,26 @@ module Onesie
       attr_accessor :tasks_paths
     end
 
-    # DRY the TASKS_DIR constant
+    # TODO: DRY the TASKS_DIR constant
     self.tasks_paths = ['onesie/tasks']
+
+    def run_all
+      tasks.each(&:run)
+    end
+
+    def run_task(task_version)
+      task = tasks.find { |t| t.version == task_version }
+
+      raise TaskNotFoundError, task_version if task.nil?
+
+      task.run
+    end
 
     def tasks
       task_files.map do |file|
-        version, name, _scope = parse_task_filename(file)
+        version, name, scope = parse_task_filename(file)
 
-        TaskProxy.new(name.camelize, version, file, _scope)
+        TaskProxy.new(name.camelize, version, file, scope)
       end
     end
 
