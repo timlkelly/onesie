@@ -31,22 +31,21 @@ module Onesie
       define_method(:manual_task?) { enabled }
     end
 
+    def initialize(name = self.class.name, version = nil)
+      @name = name
+      @version = version
+    end
+
     private
 
-    # Returns the Task's class name
-    #
-    # @api private
-    # @return [String]
-    def class_name
-      self.class.name
-    end
+    attr_reader :name, :version
 
     # Creates a TaskRecord entry for the Task
     #
     # @api private
     # @return [TaskRecord]
     def record_task
-      TaskRecord.create!(task_name: class_name)
+      TaskRecord.create!(name: name, version: version)
     end
 
     # Checks if this Task's TaskRecord is present in the database
@@ -54,7 +53,7 @@ module Onesie
     # @api private
     # @return [Boolean]
     def task_record_present?
-      TaskRecord.find_by(task_name: class_name).present?
+      TaskRecord.find_by(name: name, version: version).present?
     end
   end
 end

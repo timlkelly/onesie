@@ -9,9 +9,9 @@ module Onesie
     def run(manual_override: false)
       return unless allowed_environment?
       return if task_record_present?
-      return if !manual_override && manual_task?
+      return if manual_task? && !manual_override
 
-      puts "Running #{class_name}...".magenta
+      puts "Running #{name}...".magenta
       super()
       record_task
       puts 'Done!'.green
