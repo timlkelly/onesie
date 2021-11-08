@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Onesie
-  # Oversees running Onesie Tasks
-  class Overseer
+  # Manages running Onesie Tasks
+  class Manager
     def initialize
       load_tasks
     end
