@@ -16,19 +16,5 @@ module Onesie
       record_task
       puts 'Done!'.green
     end
-
-    private
-
-    def class_name
-      self.class.name
-    end
-
-    def record_task
-      TaskRecord.create!(task_name: class_name)
-    end
-
-    def task_record_present?
-      TaskRecord.find_by(task_name: class_name).present?
-    end
   end
 end
