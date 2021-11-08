@@ -8,11 +8,11 @@ namespace :onesie do
 
   desc 'Manually run a specific Onesie Tasks'
   task :run, [:task_name] => [:environment] do
-    Onesie::Overseer.new.run_task(task_name, manual_override: true)
+    Onesie::Manager.new.run_task(task_name, manual_override: true)
   end
 
   desc 'Run all unprocessed Onesie Tasks'
   task run_all: [:environment] do
-    Onesie::Overseer.new.run_all
+    Onesie::Manager.new.run_all
   end
 end
