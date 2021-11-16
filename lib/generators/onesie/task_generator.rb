@@ -12,9 +12,15 @@ module Onesie
       def create_task
         template(
           'task.rb',
-          "#{Onesie::TASKS_DIR}/#{file_name}.rb",
+          "#{Onesie::TASKS_DIR}/#{task_version}_#{file_name}.rb",
           class_name: class_name
         )
+      end
+
+      private
+
+      def task_version
+        Time.now.utc.strftime('%Y%m%d%H%M%S')
       end
     end
   end

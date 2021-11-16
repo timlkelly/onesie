@@ -9,8 +9,10 @@ ActiveRecord::Schema.define do
   self.verbose = false
 
   create_table :onesie_logs, force: true do |t|
-    t.string :task_name, null: false
-    t.index :task_name, unique: true
+    t.string :name, null: false
+    t.string :version, null: false
+
+    t.index [:name, :version], unique: true # rubocop:disable Style/SymbolArray
 
     t.timestamps null: false
   end

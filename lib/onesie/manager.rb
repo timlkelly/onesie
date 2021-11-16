@@ -1,60 +1,45 @@
 # frozen_string_literal: true
 
 module Onesie
-  # Manages running Onesie Tasks
+  # Responsible managing the Task files
   class Manager
-    def initialize
-      load_tasks
+    TASK_FILENAME_REGEX = /\A([0-9]+)_([_a-z0-9]*)\.?([_a-z0-9]*)?\.rb\z/.freeze
+
+    class << self
+      attr_accessor :tasks_paths
     end
+
+    # TODO: DRY the TASKS_DIR constant
+    self.tasks_paths = ['onesie/tasks']
 
     def run_all
-      Onesie::Tasks.constants.each do |const|
-        run_task(const)
-      end
+      tasks.each(&:run)
     end
 
-    # Run a specific Onesie Task
-    #
-    # @api public
-    # @example Manually run a specific task
-    #  run_task(:MyTask, manual_override: true)
-    # @param class_name [String, Symbol] the name of the Task to run
-    # @param manual_override [Boolean] optional keyword argument to override
-    #  the manual task guard
-    # @return [String, nil]
-    def run_task(class_name, manual_override: false)
-      klass = Onesie::Tasks.const_get(class_name)
-      klass.class_eval { prepend Onesie::TaskWrapper }
-      klass.new.run(manual_override: manual_override)
-    rescue StandardError => e
-      puts error_message(class_name).red
-      raise e
+    def run_task(task_version)
+      task = tasks.find { |t| t.version == task_version }
+
+      raise TaskNotFoundError, task_version if task.nil?
+
+      task.run
+    end
+
+    def tasks
+      task_files.map do |file|
+        version, name, scope = parse_task_filename(file)
+
+        TaskProxy.new(name.camelize, version, file, scope)
+      end
     end
 
     private
 
-    # Error message for a failed Task
-    #
-    # @api private
-    # @return [String]
-    def error_message(const)
-      <<~MSG
-        \n
-        An error occured while running #{const} task.
-        All further tasks did not run.
-      MSG
+    def task_files
+      Dir["#{self.class.tasks_paths.first}/**/[0-9]*_*.rb"]
     end
 
-    # Load all of the Onesie Tasks
-    #
-    # @api private
-    # @return [Array<Pathname>]
-    def load_tasks
-      $LOAD_PATH << Bundler.root.to_s
-
-      Pathname(Onesie::TASKS_DIR).children.each do |child|
-        require child.to_s
-      end
+    def parse_task_filename(filename)
+      File.basename(filename).scan(TASK_FILENAME_REGEX).first
     end
   end
 end
