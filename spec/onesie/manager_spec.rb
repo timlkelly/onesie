@@ -2,43 +2,43 @@
 
 RSpec.describe Onesie::Manager, order: :custom do
   let(:manager) { subject }
-  let(:task) { instance_double(Onesie::Tasks::TestTask, run: true) }
 
   before do
-    stub_const('Onesie::TASKS_DIR', 'spec/support/tasks')
+    allow(described_class).to receive(:tasks_paths).and_return(['spec/support/tasks'])
   end
 
-  describe '#initialize' do
-    it 'loads the available Tasks', order_number: 0 do
-      expect {
-        manager
-      }.to change(Onesie::Tasks, :constants).from([]).to([:TestTask])
+  describe '#tasks' do
+    it 'returns an array of TaskProxies' do
+      expect(manager.tasks).to include(Onesie::TaskProxy)
     end
   end
 
   describe '#run_task' do
-    it 'prepends the TaskWrapper', order_number: 1 do
-      manager.run_task(:TestTask)
+    context 'with a valid task version' do
+      let(:task_proxy_dbl) do
+        instance_double(Onesie::TaskProxy, version: '20211106171205', run: true)
+      end
 
-      expect(Onesie::Tasks::TestTask.ancestors).to include(Onesie::TaskWrapper)
+      it 'does not raise an error' do
+        expect {
+          manager.run_task('20211106171205')
+        }.not_to raise_error
+      end
+
+      it 'runs the task' do
+        allow(manager).to receive(:tasks).and_return([task_proxy_dbl])
+
+        manager.run_task('20211106171205')
+        expect(task_proxy_dbl).to have_received(:run)
+      end
     end
 
-    it 'instantiates a new Task instance', order_number: 2 do
-      mngr = manager
-      allow(Onesie::Tasks::TestTask).to receive(:new).and_return(task)
-
-      mngr.run_task(:TestTask)
-
-      expect(Onesie::Tasks::TestTask).to have_received(:new)
-    end
-
-    it 'runs the Task', order_number: 3 do
-      mngr = manager
-      allow(Onesie::Tasks::TestTask).to receive(:new).and_return(task)
-
-      mngr.run_task(:TestTask)
-
-      expect(task).to have_received(:run)
+    context 'with an invalid task version' do
+      it 'raises TaskNotFoundError' do
+        expect {
+          manager.run_task('1234567890')
+        }.to raise_error(Onesie::TaskNotFoundError)
+      end
     end
   end
 end

@@ -3,13 +3,16 @@
 class CreateOnesieLogsTable < ActiveRecord::Migration<%= migration_version %>
   def change
     create_table :onesie_logs do |t|
-      t.string :task_name, null: false
-      t.index :task_name, unique: true
+      t.string :name, null: false
+      t.string :version, null: false
+
+      t.index [:name, :version], unique: true
 
       t.timestamps null: false
     end
 
-    execute("COMMENT ON COLUMN public.onesie_logs.task_name IS 'Identifier for the Onesie Task'")
+    execute("COMMENT ON COLUMN public.onesie_logs.name IS 'Name identifier for the Onesie Task'")
+    execute("COMMENT ON COLUMN public.onesie_logs.version IS 'Version identifier for the Onesie Task'")
     execute("COMMENT ON COLUMN public.onesie_logs.created_at IS 'Timestamp of record creation'")
     execute("COMMENT ON COLUMN public.onesie_logs.updated_at IS 'Timestamp of latest record update'")
   end
