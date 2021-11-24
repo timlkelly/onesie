@@ -17,7 +17,8 @@ module Onesie
     end
 
     def run_all
-      runner.perform(tasks)
+      high_priority_tasks.each(&:run)
+      no_priority_tasks.each(&:run)
     end
 
     def run_task(task_version)
@@ -29,11 +30,20 @@ module Onesie
     end
 
     def tasks
-      task_files.map do |file|
-        version, name, scope = parse_task_filename(file)
+      @tasks ||= task_files.map do |file|
+        version, name, priority = parse_task_filename(file)
+        priority = nil if priority.empty?
 
-        TaskProxy.new(name.camelize, version, file, scope)
+        TaskProxy.new(name.camelize, version, file, priority)
       end
+    end
+
+    def high_priority_tasks
+      tasks.select { |task| task.priority == 'high' }
+    end
+
+    def no_priority_tasks
+      tasks.select { |task| task.priority.nil? }
     end
 
     private
