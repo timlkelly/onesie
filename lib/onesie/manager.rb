@@ -12,8 +12,12 @@ module Onesie
     # TODO: DRY the TASKS_DIR constant
     self.tasks_paths = ['onesie/tasks']
 
+    def initialize(runner: Onesie::Runner)
+      @runner = runner
+    end
+
     def run_all
-      tasks.each(&:run)
+      runner.perform(tasks)
     end
 
     def run_task(task_version)
@@ -21,7 +25,7 @@ module Onesie
 
       raise TaskNotFoundError, task_version if task.nil?
 
-      task.run
+      runner.perform(task)
     end
 
     def tasks
@@ -33,6 +37,8 @@ module Onesie
     end
 
     private
+
+    attr_reader :runner
 
     def task_files
       Dir["#{self.class.tasks_paths.first}/**/[0-9]*_*.rb"]
