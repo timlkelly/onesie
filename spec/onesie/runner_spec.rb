@@ -14,13 +14,11 @@ RSpec.describe Onesie::Runner do
     it 'rescues StandardError' do
       allow(task).to receive(:run).and_raise(StandardError)
 
-      expect {
-        runner.perform
-      }.not_to raise_error
+      expect { runner.perform }.not_to raise_error
     end
 
     it 'logs errors' do
-      allow(task).to receive(:run).and_raise(StandardError, 'uh oh')
+      allow(task).to receive(:run).and_raise(StandardError)
 
       expect {
         runner.perform
