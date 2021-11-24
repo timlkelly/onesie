@@ -24,9 +24,7 @@ module Onesie
         errors[task.class.name] = e
       end
 
-      return unless errors.any?
-
-      print_errors
+      print_errors if errors.any?
     end
 
     private
