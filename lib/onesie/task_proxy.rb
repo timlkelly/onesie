@@ -2,8 +2,8 @@
 
 module Onesie
   # TaskProxy is a stand in for the actual Task until the class is needed
-  TaskProxy = Struct.new(:name, :version, :filename, :_scope) do
-    def initialize(name, version, filename, _scope)
+  TaskProxy = Struct.new(:name, :version, :filename, :priority) do
+    def initialize(name, version, filename, priority)
       super
       @task = nil
     end
