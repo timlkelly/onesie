@@ -6,11 +6,11 @@ module Onesie
     TASK_FILENAME_REGEX = /\A([0-9]+)_([_a-z0-9]*)\.?([_a-z0-9]*)?\.rb\z/.freeze
 
     class << self
-      attr_accessor :tasks_paths
+      attr_accessor :tasks_path
     end
 
     # TODO: DRY the TASKS_DIR constant
-    self.tasks_paths = ['onesie/tasks']
+    self.tasks_path = 'onesie/tasks'
 
     def initialize(runner: Onesie::Runner)
       @runner = runner
@@ -41,7 +41,7 @@ module Onesie
     attr_reader :runner
 
     def task_files
-      Dir["#{self.class.tasks_paths.first}/**/[0-9]*_*.rb"]
+      Dir["#{self.class.tasks_path}/**/[0-9]*_*.rb"]
     end
 
     def parse_task_filename(filename)
