@@ -2,8 +2,11 @@
 
 namespace :onesie do
   desc 'Generates a new Onesie Task'
-  task :new, [:name] do |_t, args|
-    Rails::Generators.invoke('onesie:task', [args.fetch(:name)])
+  task :new, [:name, :priority] do |_t, args|
+    name = args.fetch(:name)
+    priority = args.fetch(:priority, nil)
+
+    Rails::Generators.invoke('onesie:task', [name, priority])
   end
 
   desc 'Manually run a specific Onesie Tasks'
