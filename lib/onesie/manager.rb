@@ -35,6 +35,13 @@ module Onesie
       runner.perform(task)
     end
 
+    def filter_tasks(priority_level)
+      @tasks_hash ||= Hash.new do |h, k|
+        h[k] = tasks.select { |task| task.priority == priority_level }
+      end
+      @tasks_hash[priority_level]
+    end
+
     def tasks
       @tasks ||= task_files.map do |file|
         version, name, priority = parse_task_filename(file)
@@ -42,10 +49,6 @@ module Onesie
 
         TaskProxy.new(name.camelize, version, file, priority)
       end
-    end
-
-    def filter_tasks(priority_level)
-      tasks.select { |task| task.priority == priority_level }
     end
 
     private
