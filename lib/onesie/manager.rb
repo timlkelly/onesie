@@ -17,8 +17,14 @@ module Onesie
     end
 
     def run_all
-      high_priority_tasks.each(&:run)
-      no_priority_tasks.each(&:run)
+      Task::Priority.constants.each do |const|
+        run_tasks(priority_level: Task::Priority.const_get(const))
+      end
+      run_tasks
+    end
+
+    def run_tasks(priority_level: nil)
+      filter_tasks(priority_level).each(&:run)
     end
 
     def run_task(task_version)
@@ -38,12 +44,8 @@ module Onesie
       end
     end
 
-    def high_priority_tasks
-      tasks.select { |task| task.priority == 'high' }
-    end
-
-    def no_priority_tasks
-      tasks.select { |task| task.priority.nil? }
+    def filter_tasks(priority_level)
+      tasks.select { |task| task.priority == priority_level }
     end
 
     private
