@@ -19,4 +19,19 @@ namespace :onesie do
   task :run_all do
     Onesie::Manager.new.run_all
   end
+
+  desc 'Run all high priority tasks'
+  task :run_high_priority_tasks do
+    Onesie::Manager.new.run_tasks(priority_level: Onesie::Task::Priority::HIGH)
+  end
+
+  desc 'Run all long_running priority tasks'
+  task :run_long_running_tasks do
+    Onesie::Manager.new.run_tasks(priority_level: Onesie::Task::Priority::LONG_RUNNING)
+  end
+
+  desc 'Run all maintenance priority tasks'
+  task :run_maintenance_tasks do
+    Onesie::Manager.new.run_tasks(priority_level: Onesie::Task::Priority::MAINTENANCE)
+  end
 end
