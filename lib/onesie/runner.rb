@@ -21,6 +21,7 @@ module Onesie
       tasks.each do |task|
         task.run
       rescue StandardError => e
+        puts "An error occurred with #{task.class.name}".red
         errors[task.class.name] = e
       end
 
