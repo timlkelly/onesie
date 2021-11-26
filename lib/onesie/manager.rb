@@ -17,9 +17,9 @@ module Onesie
     end
 
     def run_all
-      Task::Priority.constants.each do |const|
-        run_tasks(priority_level: Task::Priority.const_get(const))
-      end
+      run_tasks(priority_level: Task::Priority::HIGH)
+      run_tasks(priority_level: Task::Priority::LONG_RUNNING)
+      run_tasks(priority_level: Task::Priority::MAINTENANCE)
       run_tasks
     end
 
