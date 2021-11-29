@@ -25,6 +25,7 @@ RSpec.describe Onesie::Runner do
 
     it 'rescues StandardError' do
       allow(task).to receive(:run).and_raise(StandardError)
+      allow(runner).to receive(:print_errors)
 
       expect { runner.perform }.not_to raise_error
     end
