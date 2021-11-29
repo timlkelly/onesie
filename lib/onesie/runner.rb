@@ -14,7 +14,7 @@ module Onesie
     # param tasks [Task, TaskProxy, #run, Array<Task, TaskProxy, #run>]
     def initialize(tasks)
       @errors = {}
-      @tasks = Array(tasks)
+      @tasks = Array(tasks).sort_by(&:version)
     end
 
     def perform
