@@ -2,7 +2,7 @@
 
 RSpec.describe Onesie::Runner do
   let(:runner) { described_class.new(tasks) }
-  let(:task)   { instance_double(Onesie::TaskProxy, run: true) }
+  let(:task)   { instance_double(Onesie::TaskProxy, run: true, version: '20211122223807') }
   let(:tasks)  { [task] }
 
   describe '#perform' do
@@ -13,10 +13,10 @@ RSpec.describe Onesie::Runner do
     end
 
     context 'with tasks out of version order' do
-     let(:task1) { instance_double(Onesie::TaskProxy, version: '20211122223807') }
-     let(:task2) { instance_double(Onesie::TaskProxy, version: '20211124224842') }
-     let(:task3) { instance_double(Onesie::TaskProxy, version: '20211125224842') }
-     let(:tasks) { [task2, task3, task1] }
+      let(:task1) { instance_double(Onesie::TaskProxy, version: '20211122223807') }
+      let(:task2) { instance_double(Onesie::TaskProxy, version: '20211124224842') }
+      let(:task3) { instance_double(Onesie::TaskProxy, version: '20211125224842') }
+      let(:tasks) { [task2, task3, task1] }
 
       it 'orders the task by version' do
         expect(runner.tasks).to eq([task1, task2, task3])
