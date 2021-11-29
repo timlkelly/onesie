@@ -6,12 +6,12 @@ module Onesie
   class Runner
     attr_reader :errors, :tasks
 
-    # param tasks [Task, TaskProxy, #run, Array<Task, TaskProxy, #run>]
+    # @param tasks [TaskProxy, Array<TaskProxy>]
     def self.perform(tasks)
       new(tasks).perform
     end
 
-    # param tasks [Task, TaskProxy, #run, Array<Task, TaskProxy, #run>]
+    # @param tasks [TaskProxy, Array<TaskProxy>]
     def initialize(tasks)
       @errors = {}
       @tasks = Array(tasks).sort_by(&:version)
