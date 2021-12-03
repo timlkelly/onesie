@@ -24,12 +24,12 @@ module Onesie
     end
 
     def run_tasks(priority_level: nil)
-      filter_tasks(priority_level).each(&:run)
+      tasks = filter_tasks(priority_level)
+      runner.perform(tasks)
     end
 
     def run_task(task_version)
       task = tasks.find { |t| t.version == task_version }
-
       raise TaskNotFoundError, task_version if task.nil?
 
       runner.perform(task)
