@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Onesie::Manager, order: :custom do
-  let(:manager) { subject }
+RSpec.describe Onesie::Manager do
+  let(:manager) { described_class.new(runner: runner) }
+  let(:runner) { class_double(Onesie::Runner, perform: true) }
 
   before do
     allow(described_class).to receive(:tasks_paths).and_return(['spec/support/tasks'])
@@ -25,11 +26,11 @@ RSpec.describe Onesie::Manager, order: :custom do
         }.not_to raise_error
       end
 
-      it 'runs the task' do
+      it 'delegates to the Runner class' do
         allow(manager).to receive(:tasks).and_return([task_proxy_dbl])
 
         manager.run_task('20211106171205')
-        expect(task_proxy_dbl).to have_received(:run)
+        expect(runner).to have_received(:perform).with(task_proxy_dbl)
       end
     end
 

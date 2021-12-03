@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Setup Onesie Base
 - Add manual Tasks
 - Add Task environmental guard
+- Add Task error handling
 
 [Unreleased]: https://github.com/watermelonexpress/onesie/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/watermelonexpress/onesie/releases/tag/v0.1.0
