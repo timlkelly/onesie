@@ -34,4 +34,9 @@ namespace :onesie do
   task :run_maintenance_tasks do
     Onesie::Manager.new.run_tasks(priority_level: Onesie::Task::Priority::MAINTENANCE)
   end
+
+  desc 'Run all tasks without any priority level'
+  task :run_tasks do
+    Onesie::Manager.new.run_tasks
+  end
 end
