@@ -4,9 +4,7 @@ module Onesie
   # Base Task class
   class Task
     module Priority
-      HIGH         = 'high'
-      LONG_RUNNING = 'long_running'
-      MAINTENANCE  = 'maintenance'
+      HIGH = 'high'
     end
 
     # Class macro to define #allowed_environment? guard method

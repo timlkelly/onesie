@@ -18,8 +18,6 @@ module Onesie
 
     def run_all
       run_tasks(priority_level: Task::Priority::HIGH)
-      run_tasks(priority_level: Task::Priority::LONG_RUNNING)
-      run_tasks(priority_level: Task::Priority::MAINTENANCE)
       run_tasks
     end
 
