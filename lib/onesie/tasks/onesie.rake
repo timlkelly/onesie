@@ -27,7 +27,6 @@ namespace :onesie do
   desc 'Run all tasks'
   task :run_tasks, [:priority_level] do |_t, args|
     priority_level = args.fetch(:priority_level, nil)
-    binding.pry
     Onesie::Manager.new.run_tasks(priority_level: priority_level)
   end
 end
