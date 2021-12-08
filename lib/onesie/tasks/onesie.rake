@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 namespace :onesie do
+  # bundle exec rake onesie:new['MyTask']
+  # bundle exec rake onesie:new['MyTask','high']
   desc 'Generates a new Onesie Task'
   task :new, [:name, :priority] do |_t, args|
     name = args.fetch(:name)
@@ -20,23 +22,12 @@ namespace :onesie do
     Onesie::Manager.new.run_all
   end
 
-  desc 'Run all high priority tasks'
-  task :run_high_priority_tasks do
-    Onesie::Manager.new.run_tasks(priority_level: Onesie::Task::Priority::HIGH)
-  end
-
-  desc 'Run all long_running priority tasks'
-  task :run_long_running_tasks do
-    Onesie::Manager.new.run_tasks(priority_level: Onesie::Task::Priority::LONG_RUNNING)
-  end
-
-  desc 'Run all maintenance priority tasks'
-  task :run_maintenance_tasks do
-    Onesie::Manager.new.run_tasks(priority_level: Onesie::Task::Priority::MAINTENANCE)
-  end
-
-  desc 'Run all tasks without any priority level'
-  task :run_tasks do
-    Onesie::Manager.new.run_tasks
+  # bundle exec rake onesie:run_tasks
+  # bundle exec rake onesie:run_tasks['high']
+  desc 'Run all tasks'
+  task :run_tasks, [:priority_level] do |_t, args|
+    priority_level = args.fetch(:priority_level, nil)
+    binding.pry
+    Onesie::Manager.new.run_tasks(priority_level: priority_level)
   end
 end
