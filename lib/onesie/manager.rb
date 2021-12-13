@@ -9,7 +9,6 @@ module Onesie
       attr_accessor :tasks_path
     end
 
-    # TODO: DRY the TASKS_DIR constant
     self.tasks_path = 'onesie/tasks'
 
     def initialize(runner: Onesie::Runner)

@@ -16,7 +16,7 @@ module Onesie
       private
 
       def filename
-        "#{Onesie::TASKS_DIR}/#{task_version}_#{file_name}#{task_priority}.rb"
+        "#{Onesie::Manager.tasks_path}/#{task_version}_#{file_name}#{task_priority}.rb"
       end
 
       def task_priority
