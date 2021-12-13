@@ -6,33 +6,46 @@ module Onesie
     TASK_FILENAME_REGEX = /\A([0-9]+)_([_a-z0-9]*)\.?([_a-z0-9]*)?\.rb\z/.freeze
 
     class << self
-      attr_accessor :tasks_paths
+      attr_accessor :tasks_path
     end
 
     # TODO: DRY the TASKS_DIR constant
-    self.tasks_paths = ['onesie/tasks']
+    self.tasks_path = 'onesie/tasks'
 
     def initialize(runner: Onesie::Runner)
       @runner = runner
     end
 
     def run_all
+      run_tasks(priority_level: Task::Priority::HIGH)
+      run_tasks
+    end
+
+    def run_tasks(priority_level: nil)
+      tasks = filter_tasks(priority_level)
       runner.perform(tasks)
     end
 
     def run_task(task_version)
       task = tasks.find { |t| t.version == task_version }
-
       raise TaskNotFoundError, task_version if task.nil?
 
       runner.perform(task)
     end
 
-    def tasks
-      task_files.map do |file|
-        version, name, scope = parse_task_filename(file)
+    def filter_tasks(priority_level)
+      @tasks_hash ||= Hash.new do |h, k|
+        h[k] = tasks.select { |task| task.priority == priority_level }
+      end
+      @tasks_hash[priority_level]
+    end
 
-        TaskProxy.new(name.camelize, version, file, scope)
+    def tasks
+      @tasks ||= task_files.map do |file|
+        version, name, priority = parse_task_filename(file)
+        priority = nil if priority.empty?
+
+        TaskProxy.new(name.camelize, version, file, priority)
       end
     end
 
@@ -41,7 +54,7 @@ module Onesie
     attr_reader :runner
 
     def task_files
-      Dir["#{self.class.tasks_paths.first}/**/[0-9]*_*.rb"]
+      Dir["#{self.class.tasks_path}/**/[0-9]*_*.rb"]
     end
 
     def parse_task_filename(filename)

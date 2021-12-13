@@ -5,7 +5,7 @@ RSpec.describe Onesie::Manager do
   let(:runner) { class_double(Onesie::Runner, perform: true) }
 
   before do
-    allow(described_class).to receive(:tasks_paths).and_return(['spec/support/tasks'])
+    allow(described_class).to receive(:tasks_path).and_return('spec/support/tasks')
   end
 
   describe '#tasks' do
