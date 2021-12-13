@@ -33,8 +33,10 @@ module Onesie
     end
 
     def filter_tasks(priority_level)
-      @tasks_hash ||= Hash.new do |h, k|
-        h[k] = tasks.select { |task| task.priority == priority_level }
+      @tasks_hash ||= Hash.new do |hash, priority_level_key|
+        hash[priority_level_key] = tasks.select do |task_proxy|
+          task_proxy.priority == priority_level_key
+        end
       end
       @tasks_hash[priority_level]
     end
