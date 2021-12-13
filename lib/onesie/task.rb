@@ -3,6 +3,10 @@
 module Onesie
   # Base Task class
   class Task
+    module Priority
+      HIGH = 'high'
+    end
+
     # Class macro to define #allowed_environment? guard method
     #
     # @api public
