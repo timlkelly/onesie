@@ -11,10 +11,11 @@ namespace :onesie do
     Rails::Generators.invoke('onesie:task', [name, priority])
   end
 
+  # bundle exec rake onesie:run['20211210232208_foo']
   desc 'Manually run a specific Onesie Tasks'
-  task :run, [:version] => :environment do |_t, args|
-    task_version = args[:version]
-    Onesie::Manager.new.run_task(task_version)
+  task :run, [:filename] => :environment do |_t, args|
+    filename = args[:filename]
+    Onesie::Manager.new.run_task(filename)
   end
 
   desc 'Run all unprocessed Onesie Tasks'
