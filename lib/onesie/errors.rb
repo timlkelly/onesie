@@ -3,10 +3,10 @@
 module Onesie
   OnesieError = Class.new(StandardError)
 
-  # Raised when there is no matching Task for the provided Task Version.
+  # Raised when there is no matching Task for the provided Task filename.
   class TaskNotFoundError < OnesieError
-    def initialize(task_version)
-      super("No Task found with version number: #{task_version}")
+    def initialize(filename)
+      super("No Task found with filename: #{filename}")
     end
   end
 end
