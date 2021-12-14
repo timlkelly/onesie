@@ -8,7 +8,7 @@ module Onesie
     self.table_name = 'onesie_logs'
 
     def self.all_tasks
-      order(:version).map { |task_record| task_record.filename }
+      order(:version).map(&:filename)
     end
 
     def filename
