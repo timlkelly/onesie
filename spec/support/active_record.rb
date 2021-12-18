@@ -8,7 +8,7 @@ ActiveRecord::Base.establish_connection(
 ActiveRecord::Schema.define do
   self.verbose = false
 
-  create_table :onesie_logs, force: true do |t|
+  create_table :onesie_tasks, force: true do |t|
     t.string :name, null: false
     t.string :version, null: false
 

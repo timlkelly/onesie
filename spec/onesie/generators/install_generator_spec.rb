@@ -12,6 +12,6 @@ RSpec.describe Onesie::Generators::InstallGenerator, type: :generator do
   end
 
   it 'creates a new task file' do
-    assert_migration 'db/migrate/create_onesie_logs_table.rb', /create_table :onesie_logs/
+    assert_migration 'db/migrate/create_onesie_tasks_table.rb', /create_table :onesie_tasks/
   end
 end
