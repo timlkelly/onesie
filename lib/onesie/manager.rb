@@ -25,9 +25,9 @@ module Onesie
       runner.perform(tasks)
     end
 
-    def run_task(task_version)
-      task = tasks.find { |t| t.version == task_version }
-      raise TaskNotFoundError, task_version if task.nil?
+    def run_task(filename)
+      task = tasks.find { |task_proxy| task_proxy.filename == filename }
+      raise TaskNotFoundError, filename if task.nil?
 
       runner.perform(task)
     end

@@ -15,29 +15,29 @@ RSpec.describe Onesie::Manager do
   end
 
   describe '#run_task' do
-    context 'with a valid task version' do
+    context 'with a valid task filename' do
       let(:task_proxy_dbl) do
-        instance_double(Onesie::TaskProxy, version: '20211106171205', run: true)
+        instance_double(Onesie::TaskProxy, filename: '1234_foo_bar', run: true)
       end
 
       it 'does not raise an error' do
         expect {
-          manager.run_task('20211106171205')
+          manager.run_task('20211106171205_test_task')
         }.not_to raise_error
       end
 
       it 'delegates to the Runner class' do
         allow(manager).to receive(:tasks).and_return([task_proxy_dbl])
 
-        manager.run_task('20211106171205')
+        manager.run_task('1234_foo_bar')
         expect(runner).to have_received(:perform).with(task_proxy_dbl)
       end
     end
 
-    context 'with an invalid task version' do
+    context 'with an invalid task filename' do
       it 'raises TaskNotFoundError' do
         expect {
-          manager.run_task('1234567890')
+          manager.run_task('20211212173107_bar')
         }.to raise_error(Onesie::TaskNotFoundError)
       end
     end
