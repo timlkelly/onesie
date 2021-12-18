@@ -36,7 +36,7 @@ module Onesie
 
     def announce(task_proxy)
       puts "* #{task_proxy.name}".cyan
-      puts "bundle exec onesie:run['#{task_proxy.filename}']\n"
+      puts "bundle exec rake onesie:run['#{task_proxy.filename}']\n"
     end
   end
 end
