@@ -37,7 +37,7 @@ module Onesie
       task = tasks.find { |task_proxy| task_proxy.filename == filename }
       raise TaskNotFoundError, filename if task.nil?
 
-      runner.perform(task)
+      runner.perform(task, manual_override: true)
     end
 
     def tasks
