@@ -20,6 +20,11 @@ module Onesie
       @task ||= load_task
     end
 
+    # Make Struct compatible with Kernel#Array
+    def to_ary
+      [self]
+    end
+
     def load_task
       require(File.expand_path(file_path))
       klass = "Onesie::Tasks::#{name}".constantize
