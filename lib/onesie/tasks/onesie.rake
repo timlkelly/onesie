@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 namespace :onesie do
+  desc 'List available Onesie Tasks to process'
+  task describe: :environment do
+    Onesie::DescribeTasks.run
+  end
+
   # bundle exec rake onesie:new['MyTask']
   # bundle exec rake onesie:new['MyTask','high']
   desc 'Generates a new Onesie Task'

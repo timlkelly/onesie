@@ -2,6 +2,7 @@
 
 require 'colorize'
 
+require_relative 'onesie/describe_tasks'
 require_relative 'onesie/errors'
 require_relative 'onesie/manager'
 require_relative 'onesie/railtie'
