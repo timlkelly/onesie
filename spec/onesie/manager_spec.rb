@@ -30,7 +30,7 @@ RSpec.describe Onesie::Manager do
         allow(manager).to receive(:tasks).and_return([task_proxy_dbl])
 
         manager.run_task('1234_foo_bar')
-        expect(runner).to have_received(:perform).with(task_proxy_dbl)
+        expect(runner).to have_received(:perform).with(task_proxy_dbl, manual_override: true)
       end
     end
 
