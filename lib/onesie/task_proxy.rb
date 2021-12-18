@@ -20,7 +20,7 @@ module Onesie
       @task ||= load_task
     end
 
-    # Make Struct compatible with Kernel#Array
+    # Override default Struct behavior with Kernel#Array
     def to_ary
       [self]
     end
