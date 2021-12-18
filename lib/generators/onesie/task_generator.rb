@@ -9,8 +9,10 @@ module Onesie
       desc 'Generate a new Onesie Task'
       source_root File.expand_path('./templates', __dir__)
 
+      TEMPLATE_FILENAME = 'task.rb'
+
       def create_task
-        template('task.rb', filename, class_name: class_name)
+        template(TEMPLATE_FILENAME, filename, class_name: class_name)
       end
 
       private
