@@ -40,6 +40,16 @@ are
   - :development
   - :all (default)
 
+This method can accept multiple environments.
+
+#### Examples
+```ruby
+allowed_environments :production            # Only runs in production
+allowed_environments :integration, :staging # Only runs in integration and staging
+allowed_environments :development           # Only runs in development
+```
+
+
 ### `manual_task`
 Adds a guard to exlcude this task from the `onesie:run_tasks` and
 `onesie:run_all` rake commands. To run a manual task use the following rake task
