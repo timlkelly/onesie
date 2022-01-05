@@ -5,7 +5,7 @@ require 'active_record'
 module Onesie
   # Records when a specific Onesie Task was ran
   class TaskRecord < ActiveRecord::Base
-    self.table_name = 'onesie_logs'
+    self.table_name = 'onesie_tasks'
 
     def self.all_tasks
       order(:version).map(&:filename)
