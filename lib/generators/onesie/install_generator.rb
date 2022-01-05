@@ -11,10 +11,13 @@ module Onesie
       desc 'Bootstrap the Onesie gem'
       source_root File.expand_path('./templates', __dir__)
 
+      MIGRATION_DEST = 'db/migrate/create_onesie_tasks_table.rb'
+      TEMPLATE_FILENAME = 'migration.rb'
+
       def copy_migration
         migration_template(
-          'migration.rb',
-          'db/migrate/create_onesie_logs_table.rb',
+          TEMPLATE_FILENAME,
+          MIGRATION_DEST,
           migration_version: migration_version
         )
       end
