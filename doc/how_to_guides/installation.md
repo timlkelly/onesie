@@ -10,7 +10,7 @@ created_at: 2021-12-21
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'onesie', git: 'https://github.com/watermelonexpress/onesie', tag: '0.1.0'
+gem 'onesie', git: 'git@github.com:watermelonexpress/onesie.git', tag: 'v0.1.0'
 ```
 
 And then execute `bundle install`
