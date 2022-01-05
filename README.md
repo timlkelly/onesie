@@ -4,37 +4,7 @@
 
 Onesie is a Task runner for BenchPrep Rails applications.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'onesie'
-```
-
-And then execute:
-
-    $ bundle install
-
-Generate and run the required migration file:
-
-    $ bin/rails generate onesie:install
-    $ bundle exec rake db:migrate
-
-## Usage
-
-Generate a new Onesie Task using either the Rails generator or the Rake task:
-
-    $ bin/rails generate onesie:task MyFirstTask
-
-    $ bundle exec rake onesie:new['MyFirstTask']
-
-Add your code in the new generated template file. Make sure to make use of the
-`#run` method. This is what will be executed when the Tasks are ran.
-
-Run the Onesie tasks with the following Rake task
-
-    $ bundle exec rake onesie:run
+Installation and Usage documentation can be found in the `doc/` directory.
 
 ## Development
 
