@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.1] - 2022-01-06
+
+### Removed
 - Removed unique index between `name` and `version` for PostgreSQL BDR
   compliance
 
@@ -20,8 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add comment on `onesie_tasks.id` column
 - Add uniqueness validation to `TaskRecord`
 - Make migration reversible; Specified `up` and `down` actions
-
-### Security
 
 ## [0.1.0] - 2021-09-29
 
@@ -34,5 +40,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add onesie:describe rake task
 - Change database tablename from `onesie_logs` to `onesie_tasks`
 
-[Unreleased]: https://github.com/watermelonexpress/onesie/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/watermelonexpress/onesie/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/watermelonexpress/onesie/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/watermelonexpress/onesie/releases/tag/v0.1.0
