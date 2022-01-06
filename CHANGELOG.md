@@ -13,8 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 ### Removed
+- Removed unique index between `name` and `version` for PostgreSQL BDR
+  compliance
 
 ### Fixed
+- Add comment on `onesie_tasks.id` column
+- Add uniqueness validation to `TaskRecord`
 
 ### Security
 
