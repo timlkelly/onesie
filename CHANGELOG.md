@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Add comment on `onesie_tasks.id` column
 - Add uniqueness validation to `TaskRecord`
+- Make migration reversible; Specified `up` and `down` actions
 
 ### Security
 
