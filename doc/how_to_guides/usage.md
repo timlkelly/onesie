@@ -53,7 +53,8 @@ bundle exec rake onesie:new['MyTask','high'] # creates a high priority task
 The generator will create a onesie template file. The task must include the
 `#run` method. Add your code to the new task file.
 
-For details about the Task class and the class macros, see [Task](doc/explanation/task).
+For details about the Task class and the class macros, see the
+[Task](../explanations/task.md) document.
 
 ## Run the Onesie Task
 There are three Rake tasks to assist with running onesies.

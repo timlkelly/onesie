@@ -4,7 +4,11 @@
 
 Onesie is a Task runner for BenchPrep Rails applications.
 
-Installation and Usage documentation can be found in the `doc/` directory.
+## Installation
+See the [installation guide](doc/how_to_guides/installation.md).
+
+## Usage
+See the [usage guide](doc/how_to_guides/usage.md).
 
 ## Development
 
