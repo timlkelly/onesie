@@ -24,3 +24,5 @@ database to ensure that it will only be ran once.
 - Avoid long-running tasks
   - If this is unavoidable, add logging or use the `ScriptProgress` helper to
     provide insight
+  - Consider whether the task should be a manual task so it doesn't hold up
+    other tasks
