@@ -52,7 +52,10 @@ allowed_environments :development           # Only runs in development
 
 ### `manual_task`
 Adds a guard to exlcude this task from the `onesie:run_tasks` and
-`onesie:run_all` rake commands. To run a manual task use the following rake task
+`onesie:run_all` rake commands.
+This is useful when you have a onesie that will take a long time to run and you
+don't want it to hold up other onesies.
+To run a manual task use the following rake task
 
 ```bash
 rake onesie:run[filename]              # Manually run a specific Onesie Tasks
