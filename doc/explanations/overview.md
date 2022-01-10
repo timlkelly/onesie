@@ -15,7 +15,7 @@ database to ensure that it will only be ran once.
 ## Best Practices
 - Include the Jira ticket code in your onesie to provide context
 - Use `bundle exec` to avoid gem version issues, e.g.
-  `bundle exec rake onesies:new[...]`
+  `bundle exec rake onesie:new[...]`
 - Use the Rake Task or Rails Generator to create a onesies; **Do not** manually
   create or copy onesies files
 - Onesies **should** be idempotent

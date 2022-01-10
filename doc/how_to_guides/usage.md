@@ -72,8 +72,9 @@ rake onesie:run_tasks[priority_level]  # Run all tasks by priority level
 ### Examples
 
 ```bash
-be rake onesie:run['20220105140152_my_task']
-be rake onesie:run_tasks['high']
+be rake onesie:run['20220105140152_my_task'] # Run 20220105140152_my_task.rb
+be rake onesie:run_tasks['high']             # Run all high priority tasks
+be rake onesie:run_tasks                     # Run all tasks without priority
 ```
 
 ## Describe
