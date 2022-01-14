@@ -20,4 +20,4 @@ Next, generate the required migration file and migrate:
 ```bash
 bundle exec rails generate onesie:install
 bundle exec rake db:migrate
-````
+```
