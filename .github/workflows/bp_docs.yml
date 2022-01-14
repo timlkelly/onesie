@@ -1,0 +1,27 @@
+name: Benchprep Docs Publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - doc/**
+
+jobs:
+  bp_docs_actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout slack notifer action
+        uses: actions/checkout@v2
+        with:
+          repository: watermelonexpress/bp-docs-actions
+          ref: main
+          token: ${{ secrets.PAT_TOKEN }}
+          path: ./.github/actions/bp-docs
+
+      - name: BP Docs workflow
+        uses: ./.github/actions/bp-docs
+        with:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          PAT_USERNAME: ${{ secrets.PAT_USERNAME }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
