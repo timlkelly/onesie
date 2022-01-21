@@ -14,7 +14,7 @@ module Onesie
       puts "Running #{name}...".magenta
       super()
       record_task
-      puts 'Done!'.green
+      puts "Done running #{name}!".green
     end
   end
 end
