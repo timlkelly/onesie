@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fix documentation typos
+- Fix the Runner's error output to reference the correct task
 
 ### Security
 
