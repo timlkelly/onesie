@@ -16,7 +16,15 @@ namespace :onesie do
     Rails::Generators.invoke('onesie:task', [name, priority])
   end
 
-  # bundle exec rake onesie:run['20211210232208_foo']
+  # bundle exec rake onesie:rerun
+  # bundle exec rake onesie:rerun['20220105140152_my_task']
+  desc 'Rerun a Onesie Task'
+  task :rerun, [:filename] => :environment do |_t, args|
+    filename = args.fetch(:filename, nil)
+    Onesie::Manager.new.rerun(filename: filename)
+  end
+
+  # bundle exec rake onesie:run['20220105140152_my_task']
   desc 'Manually run a specific Onesie Tasks'
   task :run, [:filename] => :environment do |_t, args|
     filename = args[:filename]
