@@ -77,10 +77,14 @@ be rake onesie:run_tasks['high']             # Run all high priority tasks
 be rake onesie:run_tasks                     # Run all tasks without priority
 ```
 
-## ReRunning a Task
-During the development process, it may be useful to rerun a Onesie Task. Rerun
-the most recent Task or specify a Task filename to rerun a specific Task.
+## Rerunning a Task
+During the development process, it may be useful to rerun a Onesie Task.
+Use the `onesie:rerun` rake task to:
+- Rerun the most recent Task
+- Specify a Task filename to rerun a specific Task
 
+
+### Examples
 ```bash
 bundle exec rake onesie:rerun                           # Reruns the last task
 bundle exec rake onesie:rerun['20220105140152_my_task'] # Reruns MyTask
