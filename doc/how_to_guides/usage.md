@@ -68,7 +68,6 @@ rake onesie:run_tasks[priority_level]  # Run all tasks by priority level
 !!! Note
     Manual tasks must be ran individually with the `onesie:run` rake task.
 
-
 ### Examples
 
 ```bash
@@ -82,7 +81,6 @@ During the development process, it may be useful to rerun a Onesie Task.
 Use the `onesie:rerun` rake task to:
 - Rerun the most recent Task
 - Specify a Task filename to rerun a specific Task
-
 
 ### Examples
 ```bash
