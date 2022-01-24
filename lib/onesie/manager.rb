@@ -34,7 +34,7 @@ module Onesie
     end
 
     def run_task(filename)
-      task = find_task(filename)
+      task = find_task!(filename)
       runner.perform(task, manual_override: true)
     end
 
@@ -48,7 +48,7 @@ module Onesie
     end
 
     def rerun(filename: nil)
-      task = filename ? find_task(filename) : last_task
+      task = filename ? find_task!(filename) : last_task
       task.delete
       runner.perform(task, manual_override: true)
     end
@@ -70,7 +70,7 @@ module Onesie
       @tasks_hash[priority_level]
     end
 
-    def find_task(filename)
+    def find_task!(filename)
       task = tasks.find { |task_proxy| task_proxy.filename == filename }
       raise TaskNotFoundError, filename if task.nil?
 
