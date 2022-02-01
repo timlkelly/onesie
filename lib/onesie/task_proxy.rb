@@ -8,7 +8,8 @@ module Onesie
       @task = nil
     end
 
-    delegate :run, to: :task
+    delegate :delete, to: :task_record
+    delegate :run,    to: :task
 
     def filename
       file_path.match(/([0-9]+_[_a-z0-9]+)/).captures.first
@@ -18,6 +19,10 @@ module Onesie
 
     def task
       @task ||= load_task
+    end
+
+    def task_record
+      @task_record ||= TaskRecord.find_by!(name: name, version: version)
     end
 
     # Override default Struct behavior with Kernel#Array

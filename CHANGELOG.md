@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Add ability to rerun Tasks
+- Add `onesie:rerun` rake task
 
 ### Changed
 - Updated documentation of manual tasks
