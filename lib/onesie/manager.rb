@@ -34,9 +34,7 @@ module Onesie
     end
 
     def run_task(filename)
-      task = tasks.find { |task_proxy| task_proxy.filename == filename }
-      raise TaskNotFoundError, filename if task.nil?
-
+      task = find_task!(filename)
       runner.perform(task, manual_override: true)
     end
 
@@ -47,6 +45,12 @@ module Onesie
 
         TaskProxy.new(name.camelize, version, file, priority)
       end
+    end
+
+    def rerun(filename: nil)
+      task = filename ? find_task!(filename) : last_task
+      task.delete
+      runner.perform(task, manual_override: true)
     end
 
     private
@@ -64,6 +68,17 @@ module Onesie
         end
       end
       @tasks_hash[priority_level]
+    end
+
+    def find_task!(filename)
+      task = tasks.find { |task_proxy| task_proxy.filename == filename }
+      raise TaskNotFoundError, filename if task.nil?
+
+      task
+    end
+
+    def last_task
+      tasks.max_by(&:version)
     end
 
     def parse_task_filename(filename)
