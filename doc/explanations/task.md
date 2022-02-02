@@ -1,5 +1,5 @@
 ---
-title: task
+title: Task
 description:
 type: explanation
 created_at: 2022-01-05
