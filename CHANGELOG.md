@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.2.0] - 2022-02-01
+
+### Added
 - Add ability to rerun Tasks
 - Add `onesie:rerun` rake task
 
@@ -15,15 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add documentation examples
 - Added Onesie task name to "Done" message for logging
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 - Fix documentation typos
 - Fix the Runner's error output to reference the correct task
-
-### Security
 
 ## [0.1.1] - 2022-01-06
 
@@ -47,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add onesie:describe rake task
 - Change database tablename from `onesie_logs` to `onesie_tasks`
 
-[Unreleased]: https://github.com/watermelonexpress/onesie/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/watermelonexpress/onesie/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/watermelonexpress/onesie/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/watermelonexpress/onesie/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/watermelonexpress/onesie/releases/tag/v0.1.0
