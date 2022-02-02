@@ -1,5 +1,5 @@
 ---
-title: usage
+title: Usage
 description:
 type: how_to_guide
 created_at: 2021-12-21
@@ -79,6 +79,7 @@ be rake onesie:run_tasks                     # Run all tasks without priority
 ## Rerunning a Task
 During the development process, it may be useful to rerun a Onesie Task.
 Use the `onesie:rerun` rake task to:
+
 - Rerun the most recent Task
 - Specify a Task filename to rerun a specific Task
 

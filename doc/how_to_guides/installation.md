@@ -1,5 +1,5 @@
 ---
-title: installation
+title: Installation
 description:
 type: how_to_guide
 created_at: 2021-12-21
