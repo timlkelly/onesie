@@ -2,8 +2,13 @@
 
 RSpec.describe Onesie::Runner do
   let(:runner) { described_class.new(tasks) }
-  let(:task)   { instance_double(Onesie::TaskProxy, run: true, version: '20211122223807') }
   let(:tasks)  { [task] }
+  let(:task) do
+    instance_double(Onesie::TaskProxy,
+      name: 'TaskyMcTaskFace',
+      run: true,
+      version: '20211122223807')
+  end
 
   describe '#perform' do
     it 'runs the tasks' do
