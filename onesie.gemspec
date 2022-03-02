@@ -5,20 +5,19 @@ require_relative 'lib/onesie/version'
 Gem::Specification.new do |spec|
   spec.name          = 'onesie'
   spec.version       = Onesie::VERSION
-  spec.authors       = ['Benchprep']
-  spec.email         = ['developers@benchprep.com']
+  spec.authors       = ['Tim Kelly']
 
-  spec.summary       = 'BenchPrep Onesie Task Runner'
+  spec.summary       = 'Onesie Task Runner'
   spec.description   = ''
-  spec.homepage      = 'https://github.com/watermelonexpress/onesie'
+  spec.homepage      = 'https://github.com/timlkelly/onesie'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.6.3')
 
-  spec.metadata['allowed_push_host']     = 'https://rubygems.pkg.github.com/watermelonexpress'
-  spec.metadata['changelog_uri']         = 'https://github.com/watermelonexpress/onesie/blob/main/CHANGELOG.md'
-  spec.metadata['github_repo']           = 'ssh://github.com/watermelonexpress/onesie'
+  spec.metadata['allowed_push_host']     = 'https://rubygems.pkg.github.com/timlkelly'
+  spec.metadata['changelog_uri']         = 'https://github.com/timlkelly/onesie/blob/main/CHANGELOG.md'
+  spec.metadata['github_repo']           = 'ssh://github.com/timlkelly/onesie'
   spec.metadata['homepage_uri']          = spec.homepage
   spec.metadata['rubygems_mfa_required'] = 'true'
-  spec.metadata['source_code_uri']       = 'https://github.com/watermelonexpress/onesie'
+  spec.metadata['source_code_uri']       = 'https://github.com/timlkelly/onesie'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
