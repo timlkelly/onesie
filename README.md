@@ -1,6 +1,6 @@
 # Onesie
 
-[![ci](https://github.com/watermelonexpress/onesie/actions/workflows/ci.yml/badge.svg)](https://github.com/watermelonexpress/onesie/actions/workflows/ci.yml)
+[![ci](https://github.com/timlkelly/onesie/actions/workflows/ci.yml/badge.svg)](https://github.com/timlkelly/onesie/actions/workflows/ci.yml)
 
 Onesie is a Task runner for BenchPrep Rails applications.
 
@@ -42,7 +42,7 @@ gem_push=no rake release
 
 ```bash
 gem push --key github \
---host https://rubygems.pkg.github.com/watermelonexpress \
+--host https://rubygems.pkg.github.com/timlkelly \
 pkg/onesie-0.2.0.gem
 ```
 

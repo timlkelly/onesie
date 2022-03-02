@@ -56,7 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add onesie:describe rake task
 - Change database tablename from `onesie_logs` to `onesie_tasks`
 
-[Unreleased]: https://github.com/watermelonexpress/onesie/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/watermelonexpress/onesie/compare/v0.1.1...v0.2.0
-[0.1.1]: https://github.com/watermelonexpress/onesie/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/watermelonexpress/onesie/releases/tag/v0.1.0
+[Unreleased]: https://github.com/timlkelly/onesie/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/timlkelly/onesie/compare/v0.1.1...v0.2.0
+[0.1.1]: https://github.com/timlkelly/onesie/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/timlkelly/onesie/releases/tag/v0.1.0
