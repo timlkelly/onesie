@@ -2,7 +2,7 @@
 
 [![ci](https://github.com/timlkelly/onesie/actions/workflows/ci.yml/badge.svg)](https://github.com/timlkelly/onesie/actions/workflows/ci.yml)
 
-Onesie is a Task runner for BenchPrep Rails applications.
+Onesie is a Task runner for Rails applications.
 
 ## Installation
 See the [installation guide](doc/how_to_guides/installation.md).
