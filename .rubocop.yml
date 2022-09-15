@@ -17,7 +17,7 @@ Layout/EndAlignment:
 
 Layout/LineLength:
   Max: 100
-  IgnoredPatterns:
+  AllowedPatterns:
     - !ruby/regexp /\A +(it|describe|context|shared_examples|include_examples|it_behaves_like) ["']/
 
 Layout/MultilineMethodCallIndentation:
@@ -33,6 +33,11 @@ Metrics/BlockLength:
     - '**/*.rake'
     - 'Rakefile'
     - 'spec/**/*.rb'
+
+RSpec:
+  Language:
+    Expectations:
+      - assert_migration
 
 RSpec/MultipleExpectations:
   Max: 2
