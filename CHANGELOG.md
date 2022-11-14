@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added `.DS_Store` to `.gitignore`
+- Added support for Rails version 5.2.8.1 and lower
 
 ### Changed
 
