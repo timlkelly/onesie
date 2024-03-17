@@ -12,11 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Switch `colorize` gem for `rainbow`
+- Upgrade project to Ruby 2.7.8
 
 ### Deprecated
 
 ### Removed
 - Removed `bpdocs.yml`
+- Removed support for Ruby 2.6.x
+- Removed debugging dependencies
 
 ### Fixed
 - Fix documentation formatting for MKDocs
