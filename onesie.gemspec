@@ -28,20 +28,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'generator_spec',      '~> 0.9'
-  spec.add_development_dependency 'guard',               '~> 2.17'
-  spec.add_development_dependency 'guard-rspec',         '~> 4.7'
-  spec.add_development_dependency 'guard-rubocop',       '~> 1.5'
-  spec.add_development_dependency 'pry',                 '~> 0.14'
-  spec.add_development_dependency 'pry-stack_explorer',  '~> 0.6'
-  spec.add_development_dependency 'rake',                '~> 13.0'
-  spec.add_development_dependency 'rspec',               '~> 3.10'
-  spec.add_development_dependency 'rubocop',             '~> 1.21'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.11'
-  spec.add_development_dependency 'rubocop-rake',        '~> 0.5'
-  spec.add_development_dependency 'rubocop-rspec',       '~> 2.5'
-  spec.add_development_dependency 'sqlite3',             '~> 1.3.13'
-
   spec.add_runtime_dependency 'activerecord', '>= 4.2.11.3', '<= 5.2.8.1'
   spec.add_runtime_dependency 'railties',     '>= 4.2.11.3', '<= 5.2.8.1'
   spec.add_runtime_dependency 'rainbow',      '~> 3'
