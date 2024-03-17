@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'activerecord', '>= 4.2.11.3', '<= 5.2.8.1'
-  spec.add_runtime_dependency 'railties',     '>= 4.2.11.3', '<= 5.2.8.1'
+  spec.add_runtime_dependency 'activerecord', '> 5'
+  spec.add_runtime_dependency 'railties',     '> 5'
   spec.add_runtime_dependency 'rainbow',      '~> 3'
 end

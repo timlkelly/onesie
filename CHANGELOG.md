@@ -8,11 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added `.DS_Store` to `.gitignore`
-- Added support for Rails version 5.2.8.1 and lower
+- Added support for Rails > 5
 
 ### Changed
 - Switch `colorize` gem for `rainbow`
-- Upgrade project to Ruby 2.7.8
+- Upgrade project to Ruby 3.0.6
 
 ### Deprecated
 
@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed `bpdocs.yml`
 - Removed support for Ruby 2.6.x
 - Removed debugging dependencies
+- Removed support for Rails 4.x
 
 ### Fixed
 - Fix documentation formatting for MKDocs
