@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+using Rainbow
+
 module Onesie
   # The Runner is responsible for running tasks, recording errors, and printing
   # the output
