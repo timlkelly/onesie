@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Onesie Task Runner'
   spec.description   = ''
   spec.homepage      = 'https://github.com/timlkelly/onesie'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.6.3')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.7')
 
   spec.metadata['changelog_uri']         = 'https://github.com/timlkelly/onesie/blob/main/CHANGELOG.md'
   spec.metadata['github_repo']           = 'ssh://github.com/timlkelly/onesie'
