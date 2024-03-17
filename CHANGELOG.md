@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added support for Rails version 5.2.8.1 and lower
 
 ### Changed
+- Switch `colorize` gem for `rainbow`
 
 ### Deprecated
 
