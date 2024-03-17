@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'colorize'
+require 'rainbow/refinement'
 
 require_relative 'onesie/describe_tasks'
 require_relative 'onesie/errors'

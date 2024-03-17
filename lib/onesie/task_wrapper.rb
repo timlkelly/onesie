@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+using Rainbow
+
 module Onesie
   # Wraps Onesie Task
   # Responsible for checking if the Task has been ran already

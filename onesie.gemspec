@@ -43,6 +43,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sqlite3',             '~> 1.3.13'
 
   spec.add_runtime_dependency 'activerecord', '>= 4.2.11.3', '<= 5.2.8.1'
-  spec.add_runtime_dependency 'colorize',     '~> 0.8.1'
+  spec.add_runtime_dependency 'rainbow',      '~> 3'
   spec.add_runtime_dependency 'railties',     '>= 4.2.11.3', '<= 5.2.8.1'
 end
