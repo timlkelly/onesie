@@ -93,3 +93,13 @@ bundle exec rake onesie:rerun['20220105140152_my_task'] # Reruns MyTask
 ```bash
 rake onesies:describe                  # Prints a list of available onesies to run
 ```
+
+## Onesie ActionableError
+To enforce that pending onesie tasks are always run, enable the follow Rails
+configuration in development.
+
+```ruby
+# config/environments/development.rb
+  config.onesie.task_error = :page_load`
+```
+Rails will now raise an ActionableError if there are pending onesies.

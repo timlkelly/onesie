@@ -2,6 +2,7 @@
 
 require 'rainbow/refinement'
 
+require_relative 'onesie/check_pending'
 require_relative 'onesie/describe_tasks'
 require_relative 'onesie/errors'
 require_relative 'onesie/manager'

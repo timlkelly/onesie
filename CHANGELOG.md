@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added `.DS_Store` to `.gitignore`
-- Added support for Rails > 5
+- Added support for Rails > 6
+- Add Onesie CheckPending page in development
 
 ### Changed
 - Switch `colorize` gem for `rainbow`
@@ -20,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed `bpdocs.yml`
 - Removed support for Ruby 2.6.x
 - Removed debugging dependencies
-- Removed support for Rails 4.x
+- Removed support for Rails 4.x and 5.x
 
 ### Fixed
 - Fix documentation formatting for MKDocs
