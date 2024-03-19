@@ -8,6 +8,34 @@ RSpec.describe Onesie::Manager do
     allow(described_class).to receive(:tasks_path).and_return('spec/support/tasks')
   end
 
+  describe '.check_pending!' do
+    let(:double) { instance_double(described_class) }
+
+    before do
+      allow(described_class).to receive(:new).and_return(double)
+    end
+
+    context 'when there are no pending tasks' do
+      before { allow(manager).to receive(:pending_tasks?).and_return(false) }
+
+      it 'does not raise an Error' do
+        expect {
+          described_class.check_pending!
+        }.not_to raise_error
+      end
+    end
+
+    context 'when there are pending tasks' do
+      before { allow(manager).to receive(:pending_tasks?).and_return(true) }
+
+      it 'raises a PendingTaskError' do
+        expect {
+          described_class.check_pending!
+        }.to raise_error(Onesie::PendingTaskError)
+      end
+    end
+  end
+
   describe '#tasks' do
     it 'returns an array of TaskProxies' do
       expect(manager.tasks).to include(Onesie::TaskProxy)

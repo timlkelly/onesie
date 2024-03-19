@@ -11,6 +11,10 @@ module Onesie
 
     self.tasks_path = 'onesie/tasks'
 
+    def self.check_pending!
+      raise PendingTaskError if new.pending_tasks?
+    end
+
     def initialize(runner: Onesie::Runner)
       @runner = runner
     end
